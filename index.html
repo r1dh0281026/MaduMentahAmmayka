@@ -4,10 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Brosur Madu - TOKO AMMAYKA</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Chewy&family=Fredoka:wght@400;700&family=Bubblegum+Sans&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Fredoka:wght@400;700&family=Bubblegum+Sans&display=swap" rel="stylesheet" />
   <style>
     body {
       font-family: 'Fredoka', sans-serif;
@@ -249,13 +246,13 @@
 
   <div class="footer">
     <p>Hubungi WhatsApp:</p>
-    <p>Ridho  (081334577915)</p>
-    <p>Risca  (081216912006)</p>
+    <p>Ridho (081334577915)</p>
+    <p>Risca (081216912006)</p>
   </div>
 
   <script>
     function orderViaWA(product) {
-      const jumlah = document.getElementById(`jumlah${product}`).value;
+      const jumlah = parseInt(document.getElementById(`jumlah${product}`).value);
       const ukuran = document.getElementById(`ukuran${product}`).value;
 
       if (!jumlah || !ukuran) {
@@ -263,16 +260,22 @@
         return;
       }
 
-      // Nomor telepon tanpa tanda +, hanya kode negara + nomor
+      const hargaPerUkuran = {
+        "Rambutan": { "250 mL": 50000, "500 mL": 95000 },
+        "Akasia": { "250 mL": 50000, "500 mL": 95000 }
+      };
+
+      const hargaSatuan = hargaPerUkuran[product][ukuran];
+      const totalHarga = hargaSatuan * jumlah;
+
+      const rupiah = totalHarga.toLocaleString('id-ID', {
+        style: 'currency',
+        currency: 'IDR'
+      });
+
       const phoneNumber = '6281334577915';
-
-      // Format pesan
-      const message = `Halo, saya ingin memesan Madu ${product} sebanyak ${jumlah} botol ukuran ${ukuran}`;
-
-      // Link WhatsApp resmi yang langsung buka aplikasi WhatsApp (kalau ada)
+      const message = `Halo, saya ingin memesan Madu ${product} sebanyak ${jumlah} botol ukuran ${ukuran}. Total: ${rupiah}`;
       const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-
-      // Buka tab baru
       window.open(url, '_blank');
     }
   </script>
