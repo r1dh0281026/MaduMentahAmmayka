@@ -181,6 +181,22 @@
       background-color: #ffb74d;
     }
 
+    .benefits {
+      font-family: 'Bubblegum Sans', cursive;
+      text-align: left;
+      margin-top: 20px;
+      font-size: 1em;
+      color: #6d4c41;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 1s ease-out;
+    }
+
+    .benefits.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     .footer {
       text-align: center;
       font-size: 1.3em;
@@ -225,6 +241,17 @@
         </select>
         <button onclick="orderViaWA('Rambutan')">Pesan via WhatsApp</button>
       </div>
+      <div class="benefits">
+        <strong>Manfaat Madu Rambutan:</strong>
+        <ul>
+          <li>Meningkatkan kekebalan tubuh</li>
+          <li>Antibakteri dan antivirus</li>
+          <li>Anti-inflamasi</li>
+          <li>Menjaga kesehatan jantung</li>
+          <li>Melancarkan pencernaan</li>
+          <li>Mempercepat penyembuhan luka</li>
+        </ul>
+      </div>
     </div>
 
     <div class="card">
@@ -240,6 +267,17 @@
           <option value="1000 Gram">1000 Gram</option>
         </select>
         <button onclick="orderViaWA('Akasia')">Pesan via WhatsApp</button>
+      </div>
+      <div class="benefits">
+        <strong>Manfaat Madu Akasia:</strong>
+        <ul>
+          <li>Meningkatkan energi dan stamina</li>
+          <li>Meredakan batuk dan radang tenggorokan</li>
+          <li>Meningkatkan kualitas tidur</li>
+          <li>Menyehatkan sistem pencernaan</li>
+          <li>Mengandung antioksidan tinggi</li>
+          <li>Membantu penyembuhan luka ringan</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -278,6 +316,17 @@
       const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
       window.open(url, '_blank');
     }
+
+    // Animasi manfaat masuk saat scroll
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.benefits').forEach(b => observer.observe(b));
   </script>
 </body>
 </html>
