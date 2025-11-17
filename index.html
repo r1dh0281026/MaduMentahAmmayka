@@ -230,14 +230,14 @@
     <div class="card">
       <img src="rambutan.png" alt="Madu Rambutan" />
       <h2>Madu Rambutan</h2>
-      <p>1000 Gram – Rp 200.000</p>
-      <p>350 Gram – Rp 70.000</p>
+      <p>700 Gram – Rp 95.000</p>
+      <p>300 Gram – Rp 55.000</p>
       <div class="order">
         <input type="number" id="jumlahRambutan" placeholder="Jumlah" min="1" />
         <select id="ukuranRambutan">
           <option value="">Pilih Ukuran</option>
           <option value="350 Gram">350 Gram</option>
-          <option value="1000 Gram">1000 Gram</option>
+          <option value="700 Gram">700 Gram</option>
         </select>
         <button onclick="orderViaWA('Rambutan')">Pesan via WhatsApp</button>
       </div>
@@ -257,14 +257,14 @@
     <div class="card">
       <img src="akasia.png" alt="Madu Akasia" />
       <h2>Madu Akasia</h2>
-      <p>1000 Gram – Rp 200.000</p>
-      <p>350 Gram – Rp 70.000</p>
+      <p>700 Gram – Rp 95.000</p>
+      <p>350 Gram – Rp 55.000</p>
       <div class="order">
         <input type="number" id="jumlahAkasia" placeholder="Jumlah" min="1" />
         <select id="ukuranAkasia">
           <option value="">Pilih Ukuran</option>
           <option value="350 Gram">350 Gram</option>
-          <option value="1000 Gram">1000 Gram</option>
+          <option value="700 Gram">700 Gram</option>
         </select>
         <button onclick="orderViaWA('Akasia')">Pesan via WhatsApp</button>
       </div>
@@ -299,8 +299,8 @@
       }
 
       const hargaPerUkuran = {
-        "Rambutan": { "350 Gram": 70000, "1000 Gram": 200000 },
-        "Akasia": { "350 Gram": 70000, "1000 Gram": 200000 }
+        "Rambutan": { "350 Gram": 55000, "700 Gram": 95000 },
+        "Akasia": { "350 Gram": 55000, "700 Gram": 95000 }
       };
 
       const hargaSatuan = hargaPerUkuran[product][ukuran];
